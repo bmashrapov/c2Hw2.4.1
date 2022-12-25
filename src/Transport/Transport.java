@@ -55,7 +55,6 @@ public class Transport implements Competing {
                 ", engineVolume=" + engineVolume +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
