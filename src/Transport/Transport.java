@@ -2,7 +2,7 @@ package Transport;
 
 import java.util.Objects;
 
-public abstract class Transport implements Competing {
+public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
@@ -68,5 +68,8 @@ public abstract class Transport implements Competing {
     @Override
     public int hashCode() {
         return Objects.hash(brand, model, engineVolume);
+    }
+    public void drive(Driver driver){
+        System.out.println("Водитель: " + driver.getFullName() + " управляет автомобилем: " + getBrand() + " " + getModel() + " и будет учавствовать в заезде");
     }
 }

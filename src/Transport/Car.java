@@ -1,6 +1,6 @@
 package Transport;
 
-public class Car<C extends DriverB> extends Transport implements Competing {
+public class Car<C extends DriverB> extends Transport {
     private TypeOfBody typeOfBody;
 
     public TypeOfBody getTypeOfBody() {

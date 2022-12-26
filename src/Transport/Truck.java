@@ -1,6 +1,6 @@
 package Transport;
 
-public class Truck<T extends DriverC> extends Transport implements Competing {
+public class Truck<T extends DriverC> extends Transport {
     private CargoCapacity cargoCapacity;
 
     public CargoCapacity getCargoCapacity() {

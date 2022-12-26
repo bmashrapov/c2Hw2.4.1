@@ -1,6 +1,6 @@
 package Transport;
 
-public class Bus<B extends DriverD> extends Transport implements Competing {
+public class Bus <B extends DriverD> extends Transport  {
     private BusCapacity busCapacity;
 
     public BusCapacity getBusCapacity() {
