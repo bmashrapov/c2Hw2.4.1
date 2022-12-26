@@ -1,39 +1,31 @@
 package Transport;
 
 public class Bus<B extends DriverD> extends Transport implements Competing {
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+    private BusCapacity busCapacity;
+
+    public BusCapacity getBusCapacity() {
+        return busCapacity;
     }
+
+    public void setBusCapacity(BusCapacity busCapacity) {
+        this.busCapacity = busCapacity;
+    }
+
+    public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
+        super(brand, model, engineVolume);
+        this.busCapacity=busCapacity;
+
+    }
+
+
     @Override
     public void printType() {
-        System.out.println("Тип транспортного средства: " + getType());
-    }
-
-    public enum BusCapacity {
-        VERY_SMALL(0, 10),
-        SMALL(10, 25),
-        MEDIUM(40, 50),
-        LARGE(60, 80),
-        VERY_LARGE(100, 120);
-
-        private final Integer lower;
-        private final Integer upper;
-
-        BusCapacity(Integer lower, Integer upper) {
-            this.lower = lower;
-            this.upper = upper;
-        }
-
-        @Override
-        public String toString() {
-            if (lower == 0 && upper != 0) {
-                return String.format("Вместимость: до %d мест", upper);
-            } else if (lower != 0 && upper == 0) {
-                return String.format("Вместимость: от %d мест", lower);
-            } else if (lower != 0 && upper != 0) {
-                return String.format("Вместимость: %d - %d мест", lower, upper);
-            }
-            return toString();
+        if (getBusCapacity().getLower() == 0 && getBusCapacity().getUpper() != 0) {
+            System.out.println("Вместимость: до " + getBusCapacity().getUpper() + " мест");
+        } else if (getBusCapacity().getLower() != 0 && getBusCapacity().getUpper() == 0) {
+            System.out.println("Вместимость: от " + getBusCapacity().getLower() + " мест");
+        } else if (getBusCapacity().getLower() != 0 && getBusCapacity().getUpper() != 0) {
+            System.out.println("Вместимость: " + getBusCapacity().getLower() + " - " + getBusCapacity().getUpper()+ " мест");
         }
     }
 }

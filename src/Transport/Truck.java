@@ -1,38 +1,35 @@
 package Transport;
 
 public class Truck<T extends DriverC> extends Transport implements Competing {
-    public Truck(String brand, String model, double engineVolume) {
+    private CargoCapacity cargoCapacity;
+
+    public CargoCapacity getCargoCapacity() {
+        return cargoCapacity;
+    }
+
+    public void setCargoCapacity(CargoCapacity cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+
+    public Truck(String brand, String model, double engineVolume, CargoCapacity cargoCapacity) {
         super(brand, model, engineVolume);
+        this.cargoCapacity = cargoCapacity;
+
     }
 
-    public enum CargoCapacity {
-        N1(null, 3.5f),
-        N2(3.5f, 12.0f),
-        N3(12.0f, null);
 
-        private final Float lowerBound;
-        private final Float upperBound;
-
-        CargoCapacity(Float lowerBound, Float upperBound) {
-            this.lowerBound = lowerBound;
-            this.upperBound = upperBound;
-        }
-
-        @Override
-        public String toString() {
-            if (lowerBound == null && upperBound == null) {
-                return "Грузоподъемность: неограниченная";
-            } else if (lowerBound == null) {
-                return String.format("Грузоподъемность: до %.1f тонн", upperBound);
-            } else if (upperBound == null) {
-                return String.format("Грузоподъемность: от %.1f тонн", lowerBound);
-            } else {
-                return String.format("Грузоподъемность: от %.1f тонн до %.1f тонн", lowerBound, upperBound);
-            }
-        }
-    }
     @Override
     public void printType() {
-        System.out.println("Тип транспортного средства: " + getType());
+        if (getCargoCapacity().getLowerBound() == null && getCargoCapacity().getUpperBound() == null) {
+            System.out.println("Грузоподъемность: неограниченная");
+        } else if (getCargoCapacity().getLowerBound() == null) {
+            System.out.println("Грузоподъемность: до " + cargoCapacity.getUpperBound() + " тонн");
+        } else if (getCargoCapacity().getUpperBound() == null) {
+            System.out.println("Грузоподъемность: от" + getCargoCapacity().getLowerBound() + " тонн");
+        } else {
+            System.out.println("Грузоподъемность: от  " + getCargoCapacity().getLowerBound()+" тонн, до " + cargoCapacity.getUpperBound()+" тонн");
+        }
     }
 }
+
+

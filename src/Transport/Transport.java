@@ -6,18 +6,12 @@ public abstract class Transport implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
-    private String type;
-
 
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
-    }
-
-    public Transport() {
-        this.type=getType();
     }
 
     public String getBrand() {
@@ -31,16 +25,6 @@ public abstract class Transport implements Competing {
     public double getEngineVolume() {
         return engineVolume;
     }
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public abstract void printType();
-
     public void startMoving() {
         System.out.println(brand + " " + model + " начинает движение");
     }
@@ -62,6 +46,7 @@ public abstract class Transport implements Competing {
     @Override
     public void maximumSpeed(double speed) {
     }
+    public abstract void printType();
 
     @Override
     public String toString() {
@@ -71,6 +56,7 @@ public abstract class Transport implements Competing {
                 ", engineVolume=" + engineVolume +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

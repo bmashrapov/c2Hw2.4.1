@@ -1,37 +1,33 @@
 package Transport;
 
 public class Car<C extends DriverB> extends Transport implements Competing {
-    public Car(String brand, String model, double engineVolume) {
+    private TypeOfBody typeOfBody;
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
+    }
+
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
+
     }
 
-    public enum BodyType {
-        SEDAN("Седан"),
-        HATCHBACK("Хетчбек"),
-        COUPE("Купе"),
-        STATION_WAGON("Универсал"),
-        SUV("Внедорожник"),
-        CROSSOVER("Кроссовер"),
-        PICKUP("Пикап"),
-        VAN("Фургон"),
-        MINIVAN("Минивэн");
-
-        private final String name;
-
-        BodyType(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("Тип кузова: %s", name);
-        }
-    }
     @Override
     public void printType() {
-        System.out.println("Тип транспортного средства: " + getType());
+        if (typeOfBody == null) {
+            System.out.println("Data error");
+        } else {
+            System.out.println(typeOfBody);
+        }
     }
 }
+
+
 
 
 
