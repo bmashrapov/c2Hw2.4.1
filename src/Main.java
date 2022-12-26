@@ -21,6 +21,18 @@ public class Main {
         DriverC<Truck> sergej = new DriverC("Сергей Семенов", true, 5);
         sergej.drive(volvo);
 
+        System.out.println(Truck.CargoCapacity.N1);
+        System.out.println(Truck.CargoCapacity.N2);
+        System.out.println(Truck.CargoCapacity.N3);
+        System.out.println(Car.BodyType.COUPE);
+        System.out.println(Bus.BusCapacity.VERY_SMALL);
+        System.out.println(Bus.BusCapacity.LARGE);
+        audi.setType("легковой автомобиль");
+        audi.printType();
+        volvo.setType("грузовик");
+        volvo.printType();
+        solaris.setType("автобус");
+        solaris.printType();
 
     }
 }
