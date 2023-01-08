@@ -28,4 +28,10 @@ public class Bus <B extends DriverD> extends Transport  {
             System.out.println("Вместимость: " + getBusCapacity().getLower() + " - " + getBusCapacity().getUpper()+ " мест");
         }
     }
+
+    @Override
+    public boolean service() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается");
+        return true;
+    }
 }

@@ -25,6 +25,11 @@ public class Car<C extends DriverB> extends Transport {
             System.out.println(typeOfBody);
         }
     }
+
+    @Override
+    public boolean service() {
+        return Math.random()>0.7;
+    }
 }
 
 

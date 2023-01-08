@@ -23,6 +23,24 @@ public class Main {
         volvo.printType();
         audi.printType();
         solaris.printType();
+        service(lada, audi, bmw, kia,
+                volvo, man, kamaz, renault,
+                solaris, mercedes, paz, liaz);
+    }
 
+    private static void service(Transport... transports) {
+        for (Transport transport : transports) {
+           serviceTransport(transport);
+        }
+    }
+
+    private static void serviceTransport(Transport transport) {
+        if (!transport.service()) {
+            try {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошёл диагностику");
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

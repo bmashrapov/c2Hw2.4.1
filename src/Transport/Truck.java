@@ -30,6 +30,11 @@ public class Truck<T extends DriverC> extends Transport {
             System.out.println("Грузоподъемность: от  " + getCargoCapacity().getLowerBound()+" тонн, до " + cargoCapacity.getUpperBound()+" тонн");
         }
     }
+
+    @Override
+    public boolean service() {
+        return Math.random()>0.75;
+    }
 }
 
 
