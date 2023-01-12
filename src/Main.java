@@ -1,5 +1,8 @@
 import Transport.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Car lada = new Car("Lada", "Granta", 1.7, TypeOfBody.COUPE);
@@ -26,11 +29,45 @@ public class Main {
         service(lada, audi, bmw, kia,
                 volvo, man, kamaz, renault,
                 solaris, mercedes, paz, liaz);
+        List<Transport> racerTransport = new ArrayList<>();
+        racerTransport.add(lada);
+        racerTransport.add(audi);
+        racerTransport.add(bmw);
+        racerTransport.add(kia);
+        racerTransport.add(volvo);
+        racerTransport.add(man);
+        racerTransport.add(kamaz);
+        racerTransport.add(renault);
+        racerTransport.add(solaris);
+        racerTransport.add(mercedes);
+        racerTransport.add(paz);
+        racerTransport.add(liaz);
+        Mechanic mechanic1 = new Mechanic("Dmitri L", "CarService1", VehicleRepairSpecification.SPECIFICATION_TRUCK);
+        Mechanic mechanic2 = new Mechanic ( "Piter D" ,  "CarService4" , VehicleRepairSpecification.SPECIFICATION_TRUCK );
+        Mechanic mechanic3 = new Mechanic("Aleks K", "CarService1", VehicleRepairSpecification.SPECIFICATION_BUS);
+        Mechanic mechanic4 = new Mechanic("Maria B", "CarService2", VehicleRepairSpecification.SPECIFICATION_UNIVERSAL);
+        Mechanic mechanic5 = new Mechanic("Aneta G", "CarService3", VehicleRepairSpecification.SPECIFICATION_CAR);
+        List<Mechanic> mechanicList = new ArrayList<> ();
+        mechanicList.add ( mechanic1 );
+        mechanicList.add ( mechanic2 );
+        mechanicList.add ( mechanic3 );
+        mechanicList.add ( mechanic4 );
+        mechanicList.add ( mechanic5 );
+        List<Driver> driverList = new ArrayList<> ();
+        driverList.add ( ilja );
+        driverList.add ( andrej );
+        driverList.add ( sergej );
+        kia.addMechanicTeamRacing ( mechanicList );
+        solaris.addMechanicTeamRacing ( mechanicList );
+        volvo.addMechanicTeamRacing ( mechanicList );
+        bmw.doRegularService ( mechanicList );
+        mercedes.doRegularService ( mechanicList );
+        man.doRegularService ( mechanicList );
     }
 
     private static void service(Transport... transports) {
         for (Transport transport : transports) {
-           serviceTransport(transport);
+            serviceTransport(transport);
         }
     }
 

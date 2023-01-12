@@ -1,6 +1,8 @@
 package Transport;
 
-public class Truck<T extends DriverC> extends Transport {
+import java.util.List;
+
+public class Truck extends Transport implements Competing {
     private CargoCapacity cargoCapacity;
 
     public CargoCapacity getCargoCapacity() {
@@ -35,6 +37,27 @@ public class Truck<T extends DriverC> extends Transport {
     public boolean service() {
         return Math.random()>0.75;
     }
+    public void getDiagnosisTransport()  {
+        System.out.println ("Проводим диагностику грузовика " + getBrand () + " " + getModel ());
+    }
+    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+        System.out.println ("Грузовик " + getBrand() + " " + getModel() + ", объем двигателя " + getEngineVolume());
+        for (Mechanic value : mechanics)
+        { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_TRUCK||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
+        {System.out.println ( "- обслуживает " + value);}
+        }
+    }
+    public void doRegularService(List<Mechanic> mechanics) {
+        System.out.println ("Механики :");
+        for (Mechanic value : mechanics)
+        { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_TRUCK||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
+        {System.out.println ( "- " + value);}
+        }
+        System.out.println ("производят регулярное ТО на автомобиле " + getBrand ()+" "+getModel ());
+
+    }
+
+
 }
 
 
