@@ -9,8 +9,14 @@ public class Driver {
 
     public Driver(String fullName, boolean typeOfLicence, int experience) {
         this.fullName = fullName;
-        this.typeOfLicence = typeOfLicence;
+        setTypeOfLicence(typeOfLicence);
         this.experience = experience;
+    }
+
+    private void setTypeOfLicence(boolean typeOfLicence) {
+        if (typeOfLicence == false) {
+            throw new IllegalArgumentException("Необхожимо указать категорию прав!");
+        }
     }
 
     public void startMoving() {
