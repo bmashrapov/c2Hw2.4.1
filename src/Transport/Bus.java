@@ -1,5 +1,6 @@
 package Transport;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bus extends Transport implements Competing {
@@ -41,7 +42,8 @@ public class Bus extends Transport implements Competing {
         System.out.println("Автобусы не проходят диагностику");
     }
 
-    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+    public void addMechanicTeamRacing(Mechanic... mechanics) {
+        List<Mechanic> mechanic = new ArrayList<>();
         System.out.println("Автобус " + getBrand() + " " + getModel() + ", объем двигателя " + getEngineVolume());
         for (Mechanic value : mechanics) {
             if (value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_BUS || value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
@@ -50,9 +52,9 @@ public class Bus extends Transport implements Competing {
         }
     }
 
-    public void doRegularService(List<Mechanic> mechanics) {
+    public void doRegularService(Mechanic... mechanic) {
         System.out.println("Механики :");
-        for (Mechanic value : mechanics) {
+        for (Mechanic value : mechanic) {
             if (value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_BUS || value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
                 System.out.println("- " + value);
             }

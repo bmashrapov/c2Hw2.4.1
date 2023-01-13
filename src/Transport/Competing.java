@@ -6,4 +6,5 @@ public interface Competing {
     void bestLapTime(double time);
 
     void maximumSpeed(double speed);
+
 }

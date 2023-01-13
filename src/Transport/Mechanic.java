@@ -22,9 +22,11 @@ public class Mechanic {
     }
 
     public void setEmployeeCompany(String employeeCompany) {
-        if(employeeCompany==null||employeeCompany.isBlank ()||employeeCompany.isEmpty ())
-        { this.employeeCompany = " механик автодрома ";}
-        else {this.employeeCompany= employeeCompany;}
+        if (employeeCompany == null || employeeCompany.isBlank() || employeeCompany.isEmpty()) {
+            this.employeeCompany = " механик автодрома ";
+        } else {
+            this.employeeCompany = employeeCompany;
+        }
     }
 
     public VehicleRepairSpecification getVehicleRepairSpecification() {

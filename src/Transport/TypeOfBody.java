@@ -1,4 +1,5 @@
 package Transport;
+
 public enum TypeOfBody {
     SEDAN("Седан"),
     HATCHBACK("Хетчбек"),

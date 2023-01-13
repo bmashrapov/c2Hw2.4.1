@@ -7,12 +7,16 @@ public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
+    List<Mechanic> mechanic;
+    List<Transport> transports;
 
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
+        this.mechanic = mechanic;
+        this.transports = transports;
     }
 
     public String getBrand() {
@@ -75,23 +79,6 @@ public abstract class Transport<T extends Driver> implements Competing {
     }
 
     public abstract boolean service();
-//    public void getDiagnosisTransport()  {
-//        System.out.println ("Проводим диагностику грузовика " + getBrand () + " " + getModel ());
-//    }
-//        public void addMechanicTeamRacing(List<Mechanic> mechanics) {
-//            System.out.println ("Грузовик " + getBrand() + " " + getModel() + ", объем двигателя " + getEngineVolume());
-//            for (Mechanic value : mechanics)
-//            { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_TRUCK||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
-//            {System.out.println ( "- обслуживает " + value);}
-//            }
-//        }
-//    public void doRegularService(List<Mechanic> mechanics) {
-//        System.out.println ("Механики :");
-//        for (Mechanic value : mechanics)
-//        { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_CAR||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
-//        {System.out.println ( "- " + value);}
-//        }
-//        System.out.println ("производят регулярное ТО на автомобиле " + getBrand ()+" "+getModel ());
-//
-//    }
+//    public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
+
 }

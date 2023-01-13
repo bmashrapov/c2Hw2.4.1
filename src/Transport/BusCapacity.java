@@ -14,7 +14,6 @@ public enum BusCapacity {
         this.lower = lower;
         this.upper = upper;
     }
-
     @Override
     public String toString() {
         if (lower == 0 && upper != 0) {
