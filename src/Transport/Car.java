@@ -40,6 +40,7 @@ public class Car extends Transport implements Competing {
         return Math.random() > 0.7;
     }
 
+
     public void getDiagnosisTransport() {
         System.out.println("Проводим диагностику автомобиля " + getBrand() + " " + getModel());
     }

@@ -7,16 +7,31 @@ public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
-    List<Mechanic> mechanic;
-    List<Transport> transports;
+    public List<Mechanic> mechanic;
+    public List<Driver> drivers;
 
+    public List<Mechanic> getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(List<Mechanic> mechanic) {
+        this.mechanic = mechanic;
+    }
+
+    public List<Driver> getTransports() {
+        return drivers;
+    }
+
+    public void setTransports(List<Driver> transports) {
+        this.drivers = drivers;
+    }
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
         this.mechanic = mechanic;
-        this.transports = transports;
+        this.drivers = drivers;
     }
 
     public String getBrand() {
