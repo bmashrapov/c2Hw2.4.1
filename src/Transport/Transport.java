@@ -7,8 +7,8 @@ public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
-    public List<Mechanic> mechanic;
-    public List<Driver> drivers;
+    private List<Mechanic> mechanic;
+    private List<Driver> drivers;
 
     public List<Mechanic> getMechanic() {
         return mechanic;
