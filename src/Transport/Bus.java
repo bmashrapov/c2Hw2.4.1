@@ -1,6 +1,9 @@
 package Transport;
 
-public class Bus <B extends DriverD> extends Transport  {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bus extends Transport implements Competing {
     private BusCapacity busCapacity;
 
     public BusCapacity getBusCapacity() {
@@ -13,7 +16,7 @@ public class Bus <B extends DriverD> extends Transport  {
 
     public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
         super(brand, model, engineVolume);
-        this.busCapacity=busCapacity;
+        this.busCapacity = busCapacity;
 
     }
 
@@ -25,7 +28,7 @@ public class Bus <B extends DriverD> extends Transport  {
         } else if (getBusCapacity().getLower() != 0 && getBusCapacity().getUpper() == 0) {
             System.out.println("Вместимость: от " + getBusCapacity().getLower() + " мест");
         } else if (getBusCapacity().getLower() != 0 && getBusCapacity().getUpper() != 0) {
-            System.out.println("Вместимость: " + getBusCapacity().getLower() + " - " + getBusCapacity().getUpper()+ " мест");
+            System.out.println("Вместимость: " + getBusCapacity().getLower() + " - " + getBusCapacity().getUpper() + " мест");
         }
     }
 
@@ -33,5 +36,29 @@ public class Bus <B extends DriverD> extends Transport  {
     public boolean service() {
         System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается");
         return true;
+    }
+
+    public void getDiagnosisTransport() {
+        System.out.println("Автобусы не проходят диагностику");
+    }
+
+    public void addMechanicTeamRacing(Mechanic... mechanics) {
+        List<Mechanic> mechanic = new ArrayList<>();
+        System.out.println("Автобус " + getBrand() + " " + getModel() + ", объем двигателя " + getEngineVolume());
+        for (Mechanic value : mechanics) {
+            if (value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_BUS || value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
+                System.out.println("- обслуживает " + value);
+            }
+        }
+    }
+
+    public void doRegularService(Mechanic... mechanic) {
+        System.out.println("Механики :");
+        for (Mechanic value : mechanic) {
+            if (value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_BUS || value.getVehicleRepairSpecification() == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
+                System.out.println("- " + value);
+            }
+        }
+        System.out.println("производят регулярное ТО на автомобиле " + getBrand() + " " + getModel());
     }
 }

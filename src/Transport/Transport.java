@@ -1,17 +1,37 @@
 package Transport;
 
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
+    private List<Mechanic> mechanic;
+    private List<Driver> drivers;
 
+    public List<Mechanic> getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(List<Mechanic> mechanic) {
+        this.mechanic = mechanic;
+    }
+
+    public List<Driver> getTransports() {
+        return drivers;
+    }
+
+    public void setTransports(List<Driver> transports) {
+        this.drivers = drivers;
+    }
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
+        this.mechanic = mechanic;
+        this.drivers = drivers;
     }
 
     public String getBrand() {
@@ -74,4 +94,6 @@ public abstract class Transport<T extends Driver> implements Competing {
     }
 
     public abstract boolean service();
+//    public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
+
 }

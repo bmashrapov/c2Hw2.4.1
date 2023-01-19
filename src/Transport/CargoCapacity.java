@@ -25,7 +25,6 @@ public enum CargoCapacity {
             return String.format("Грузоподъемность: от %.1f тонн до %.1f тонн", lowerBound, upperBound);
         }
     }
-
     public Float getLowerBound() {
         return lowerBound;
     }
