@@ -1,9 +1,6 @@
 import Transport.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -82,6 +79,23 @@ public class Main {
         mechanicMap.put(liaz.getBrand(), mechanic4.getFullName());
         for (Map.Entry<String, String> mechanic : mechanicMap.entrySet()) {
             System.out.println("Ключ: " + mechanic.getKey() + ". Значение: " + mechanic.getValue());
+        }
+        //----------------------SET----------------------
+        HashSet<Driver> driversSet = new HashSet<>();
+        driversSet.add(ilja);
+        driversSet.add(andrej);
+        driversSet.add(sergej);
+        //copy
+        driversSet.add(ilja);
+        driversSet.add(andrej);
+        driversSet.add(sergej);
+        for (Driver driver : driversSet) {
+            System.out.println(driver);
+        }
+        System.out.println("***iterator***");
+        Iterator<Driver> driverIterator = driverList.iterator();
+        while (driverIterator.hasNext()) {
+            System.out.println(driverIterator.next());
         }
     }
 
